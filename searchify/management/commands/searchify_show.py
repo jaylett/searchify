@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-import lib.searchify
+import searchify
 from optparse import make_option
 import pprint
 
@@ -12,8 +12,8 @@ Shows configuration for all indicies if none specified.
     """.strip()
 
     def show_config(self, indices, verbose_out):
-        lib.searchify.autodiscover(verbose=verbose_out, ensure_dbs_exist=False)
-        index_models = lib.searchify.index._index_models
+        searchify.autodiscover(verbose=verbose_out, ensure_dbs_exist=False)
+        index_models = searchify.index._index_models
         if not indices:
             indices = index_models.keys()
 
@@ -22,7 +22,7 @@ Shows configuration for all indicies if none specified.
             for model in index_models[indexname]:
                 self.stdout.write("From model: %s\n" % model)
 
-                indexer = lib.searchify.utils.get_indexer(model)
+                indexer = searchify.utils.get_indexer(model)
                 for field, config in sorted(indexer.get_configuration().items()):
                     self.stdout.write(" - %s:\n" % field)
                     for k, v in sorted(config.items()):

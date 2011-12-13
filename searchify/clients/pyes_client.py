@@ -20,7 +20,7 @@ This client uses two settings from the django config:
 
 import copy
 from django.conf import settings
-import lib.searchify
+import searchify
 import pyes
 import pyes.exceptions
 
@@ -399,7 +399,7 @@ class SearchResultSet(object):
     def results(self):
         for hit in self._hits:
             pk = long(hit['_id'])
-            type = lib.searchify.utils.lookup_model(hit.get('_type'))
+            type = searchify.utils.lookup_model(hit.get('_type'))
             if type is None:
                 raise Exception("Model %s not found" % hit.get('_type'))
             yield SearchResult(type, pk, hit.get('_score', 0), hit)

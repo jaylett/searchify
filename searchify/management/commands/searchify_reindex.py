@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-import lib.searchify
+import searchify
 from optparse import make_option
 
 class Command(BaseCommand):
@@ -34,6 +34,6 @@ successsful reindex.
         for anything that hasn't been indexed yet.
         """
 
-        lib.searchify.autodiscover(ensure_dbs_exist=False)
+        searchify.autodiscover(ensure_dbs_exist=False)
         self.validate()
-        lib.searchify.reindex(args)
+        searchify.reindex(args)
