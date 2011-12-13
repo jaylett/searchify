@@ -69,7 +69,7 @@ def autodiscover(verbose=None, ensure_dbs_exist=None):
     #
     # Note we do it here so that commands that want to can defer model validation;
     # if we leave it until after the call to models.get_models() then model
-    # validation will have happened and we'll have been called from lib.searchify.models.
+    # validation will have happened and we'll have been called from searchify.models.
     global _ensure_dbs_exist
     if ensure_dbs_exist is None:
         ensure_dbs_exist = _ensure_dbs_exist
