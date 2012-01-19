@@ -5,7 +5,7 @@ except ImportError:
     from distutils.core import setup
 
 PACKAGE = 'django-searchify'
-VERSION = '0.1'
+VERSION = '0.2'
 
 setup(
     name=PACKAGE, version=VERSION,
