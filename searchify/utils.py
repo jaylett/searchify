@@ -42,13 +42,13 @@ def lookup_model(modeldesc):
 
     """
     try:
-        (app_label, model_name) = modeldesc.rsplit(".", 1)
+        (app_label, model_name) = modeldesc.rsplit("|", 1)
     except ValueError:
         return None
     return models.get_model(app_label, model_name)
 
 
 def get_typename_from_object(instance):
-    return '%s.%s' % (
+    return '%s|%s' % (
         instance._meta.app_label, instance._meta.object_name,
     )
