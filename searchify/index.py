@@ -90,14 +90,14 @@ def autodiscover(verbose=None, ensure_dbs_exist=None):
         return
 
     # Now loop through and ensure each model has a mapping.
-    for index, modellist in _index_models.items():
-        for model in modellist:
-            indexer = get_indexer(model)
-            if indexer.get_current_mapping() is None:
-                print >>sys.stderr, ("Mapping not stored for %r - need to run "
-                            "reindex command" % indexer.get_typename(model))
-                del _index_models[index]
-                break
+    #for index, modellist in _index_models.items():
+    #    for model in modellist:
+    #        indexer = get_indexer(model)
+    #        if indexer.get_current_mapping() is None:
+    #            print >>sys.stderr, ("Mapping not stored for %r - need to run "
+    #                        "reindex command" % indexer.get_typename(model))
+    #            del _index_models[index]
+    #            break
 
 def reindex(indices):
     """Reindex the named indices, or all indices if none are named.
