@@ -40,13 +40,13 @@ class Client(object):
     def __init__(self):
         self.conn = pyes.ES(settings.PYES_ADDRESS, timeout=30)
 
-    def indexer(self, indexname):
+    def get_indexer(self, indexname):
         """Get an indexer for a given index name.
 
         """
         return IndexerClient(self, indexname)
 
-    def searcher(self, indexname):
+    def get_searcher(self, indexname):
         """Get a searcher for a given index name.
 
         """
