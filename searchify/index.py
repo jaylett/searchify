@@ -210,7 +210,7 @@ class Indexer(object):
     def __init__(self, model):
         self.model = model
         if self.index:
-            self.client = client.indexer(self.index)
+            self.client = client.get_indexer(self.index)
 
     def reindex_on_cascade(self, cascade_from, cascade_to):
         """
